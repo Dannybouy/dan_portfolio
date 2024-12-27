@@ -1,101 +1,231 @@
+import { CollaborationSection } from "@/components/collaboration-section";
+import { FeaturedProjects } from "@/components/featured-projects";
+import { SEOMetadata } from "@/components/seo-metadata";
+import { Testimonials } from "@/components/testimonials";
+import { Button } from "@/components/ui/button";
+import { getAllProjects } from "@/lib/projects";
+import {
+  ChevronDown,
+  Github,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import pic1 from "../public/images/1.webp";
+import pic2 from "../public/images/2.webp";
+import pic3 from "../public/images/3.webp";
+import pic4 from "../public/images/4.webp";
+import pic5 from "../public/images/5.webp";
+import pic6 from "../public/images/6.webp";
+import profilePicture from "../public/images/7.webp";
 
-export default function Home() {
+const technologies = [
+  { status: "Nailing", name: "Javascript" },
+  { status: "Killing", name: "Typescript" },
+  { status: "Mastering", name: "React.js" },
+  { status: "Using", name: "Next.js" },
+  { status: "Loving", name: "Tailwind CSS" },
+  { status: "Testing with", name: "Vitest" },
+  { status: "Learning", name: "GO" },
+];
+
+export const metadata = SEOMetadata({
+  title: "Home",
+  description:
+    "Spencer Sharp - Software designer, founder, and amateur astronaut. Exploring the intersection of technology and space exploration.",
+  keywords: ["software design", "space technology", "entrepreneurship"],
+});
+
+export default async function Home() {
+  const projects = await getAllProjects();
+
+  const picArray = [
+    {
+      id: 1,
+      image: pic1,
+    },
+    {
+      id: 2,
+      image: pic2,
+    },
+    {
+      id: 3,
+      image: pic3,
+    },
+    {
+      id: 4,
+      image: pic4,
+    },
+    {
+      id: 5,
+      image: pic5,
+    },
+    {
+      id: 6,
+      image: pic6,
+    },
+  ];
+
+  const socialLinks = [
+    {
+      name: "Twitter",
+      url: "https://x.com/IamDannybouy20",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/iamdannybouy/",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/daniel-okpara/",
+    },
+    {
+      name: "Github",
+      url: "https://github.com/Dannybouy",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Script id="structured-data" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Daniel Okpara",
+          url: "https://www.spencersharp.com",
+          jobTitle: "Software Engineer",
+          worksFor: {
+            "@type": "Organization",
+            name: "Planetaria",
+          },
+          sameAs: [
+            "https://x.com/IamDannybouy20",
+            "https://www.linkedin.com/in/daniel-okpara/",
+            "https://github.com/Dannybouy",
+          ],
+        })}
+      </Script>
+      <div className="flex flex-col items-center">
+        {/* Hero Section */}
+        <div className="w-full max-w-screen-2xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div className="flex flex-col items-start mb-16">
+              <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-white mb-4">
+                <Image
+                  src={profilePicture}
+                  alt="Profile picture"
+                  width={128}
+                  height={128}
+                  quality={95}
+                  priority
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-6 text-left font-unbounded">
+                Software designer, founder, and amateur astronaut.
+              </h1>
+              <p className="text-lg leading-8 text-muted-foreground max-w-[600px] text-left mb-8 font-mono">
+                I&apos;m Spencer, a software designer and entrepreneur based in
+                New York City. I&apos;m the founder and CEO of Planetaria, where
+                we develop technologies that empower regular people to explore
+                space on their own terms.
+              </p>
+              <div className="flex space-x-6">
+                {socialLinks.map((platform) => (
+                  <Link
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    {platform.name === "Twitter" && (
+                      <Twitter className="h-6 w-6 hover:text-teal-400" />
+                    )}
+                    {platform.name === "Instagram" && (
+                      <Instagram className="h-6 w-6 hover:text-teal-400" />
+                    )}
+                    {platform.name === "LinkedIn" && (
+                      <Linkedin className="h-6 w-6 hover:text-teal-400" />
+                    )}
+                    {platform.name === "Github" && (
+                      <Github className="h-6 w-6 hover:text-teal-400" />
+                    )}
+                    <span className="sr-only">{platform.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen pl-8 pr-8 lg:pl-16 lg:pr-16">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-8">
+                {picArray.map((pic) => (
+                  <div
+                    key={pic.id}
+                    className={`rounded-2xl overflow-hidden ${
+                      pic.id % 2 === 0 ? "rotate-2" : "-rotate-2"
+                    } hover:scale-105 transition-transform duration-300`}
+                  >
+                    <Image
+                      src={pic.image}
+                      alt={`picture ${pic.id}`}
+                      width={1000}
+                      height={600}
+                      quality={100}
+                      priority={pic.id <= 3}
+                      className="object-cover w-full h-[300px] lg:h-[400px]"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Tech Stack Section */}
+        <div className="w-full max-w-screen-2xl px-6 lg:px-8 lg:mb-56">
+          <div className="mx-auto max-w-2xl lg:max-w-5xl text-center">
+            <div className="mb-12">
+              <p className="text-base text-muted-foreground font-mono">
+                Here is a little bit about
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 font-unbounded">
+                languages and technologies,
+              </h2>
+              <p className="text-lg text-muted-foreground font-mono">
+                that I am currently using and learning.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="space-y-2">
+                  <p className="text-sm text-zinc-400 font-mono">
+                    {tech.status}
+                  </p>
+                  <h3 className="text-2xl font-bold font-unbounded">
+                    {tech.name}
+                  </h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Featured Projects Section */}
+        <FeaturedProjects />
+
+        {/* Testimonials Section */}
+        <Testimonials />
+
+        {/* Collaboration Section */}
+        <CollaborationSection />
+
+        {/* CTA Section */}
+      </div>
+    </>
   );
 }
