@@ -2,15 +2,7 @@ import { CollaborationSection } from "@/components/collaboration-section";
 import { FeaturedProjects } from "@/components/featured-projects";
 import { SEOMetadata } from "@/components/seo-metadata";
 import { Testimonials } from "@/components/testimonials";
-import { Button } from "@/components/ui/button";
-import { getAllProjects } from "@/lib/projects";
-import {
-  ChevronDown,
-  Github,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -21,6 +13,7 @@ import pic4 from "../public/images/4.webp";
 import pic5 from "../public/images/5.webp";
 import pic6 from "../public/images/6.webp";
 import profilePicture from "../public/images/7.webp";
+import nigeriaFlag from "../public/images/nigeria_flag.svg";
 
 const technologies = [
   { status: "Nailing", name: "Javascript" },
@@ -34,14 +27,11 @@ const technologies = [
 
 export const metadata = SEOMetadata({
   title: "Home",
-  description:
-    "Spencer Sharp - Software designer, founder, and amateur astronaut. Exploring the intersection of technology and space exploration.",
-  keywords: ["software design", "space technology", "entrepreneurship"],
+  description: "Daniel Okpara - Software Engineer.",
+  keywords: ["software design", "frontend development", "software engineering"],
 });
 
 export default async function Home() {
-  const projects = await getAllProjects();
-
   const picArray = [
     {
       id: 1,
@@ -126,14 +116,24 @@ export default async function Home() {
               </div>
 
               <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-6 text-left font-unbounded">
-                Software designer, founder, and amateur astronaut.
+                Software Engineer, developer, but loves frontend
               </h1>
-              <p className="text-lg leading-8 text-muted-foreground max-w-[600px] text-left mb-8 font-mono">
-                I&apos;m Spencer, a software designer and entrepreneur based in
-                New York City. I&apos;m the founder and CEO of Planetaria, where
-                we develop technologies that empower regular people to explore
-                space on their own terms.
-              </p>
+
+              <div className="text-lg leading-8 text-muted-foreground max-w-[600px] text-left mb-8 font-mono">
+                I&apos;m Daniel, a software engineer based in Lagos, Nigeria{" "}
+                <span>
+                  <Image
+                    src={nigeriaFlag}
+                    width={100}
+                    height={100}
+                    alt="nigerian flag"
+                    className="size-10 inline-block"
+                  />
+                </span>{" "}
+                . I&apos;m the founder and CEO of Planetaria, where we develop
+                technologies that empower regular people to explore space on
+                their own terms.
+              </div>
               <div className="flex space-x-6">
                 {socialLinks.map((platform) => (
                   <Link

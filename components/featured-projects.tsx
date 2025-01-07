@@ -6,7 +6,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import skimlessImg from "../public/images/skimless-img2.png"
+import skimlessImg from "../public/images/skimless/skimless-img2.png";
 
 interface Project {
   title: string;
@@ -24,17 +24,16 @@ const projects: Project[] = [
     link: "/projects/skimless",
   },
   {
-    title: "Mobile Banking",
-    description:
-      "Next-generation mobile banking application with innovative features",
+    title: "Coming Soon",
+    description: "",
     image: "",
-    link: "/projects/mobile-banking",
+    link: "/",
   },
   {
-    title: "Digital Agency",
-    description: "Modern digital agency website with dynamic animations",
+    title: "Coming Soon",
+    description: "",
     image: "",
-    link: "/projects/digital-agency",
+    link: "/",
   },
 ];
 
@@ -71,7 +70,7 @@ export function FeaturedProjects() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg border">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt=""
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />

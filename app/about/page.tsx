@@ -17,12 +17,8 @@ import Link from "next/link";
 export const metadata = SEOMetadata({
   title: "About",
   description:
-    "Learn about Spencer Sharp, a software designer and entrepreneur based in New York City, working on civilian space technology.",
-  keywords: [
-    "about Spencer Sharp",
-    "software design career",
-    "space technology entrepreneur",
-  ],
+    "Learn about Daniel Okpara, a software engineer and frontend developer based in Lagos, Nigeria.",
+  keywords: ["about daniel okpara", "software engineer", "frontend developer"],
 });
 
 const socialLinks = [
@@ -95,37 +91,35 @@ export default function AboutPage() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-800 dark:text-zinc-100 font-unbounded">
-              I&apos;m Spencer Sharp. I live in New York City, where I design
-              the future.
+              I&apos;m Daniel Okpara. I live in Lagos Nigeria, where I build the
+              future.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I&apos;ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                The journey for me began in secondary school when I did a
+                subject called Basic Computer, I remember been fascinated about
+                the multipurpose nature of computers and how they work in the
+                basic form and how my brain just understood the subject.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister&apos;s motorcycle helmet,
-                counted down from three, and jumped — hoping the tree was tall
-                enough that with just a bit of momentum I&apos;d be able to get
-                to orbit.
+                It was then I need what I was going to study in the university,
+                I was confused at first but I knew I wanted to do something with
+                computers, so I decided to study Computer Engineering because
+                the combination of Computers + Engineering really excited me. I
+                went to the university studied Computer Engineering for 5 years
+                at the university of Lagos, and I graduated with a degree in
+                computer engineering :)
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad&apos;s Blackberry into orbit and was able to
-                transmit a photo back down to our family computer from space.
+                My journey into software engineering began in 2020 when I
+                decided to start learning beyond the lecture room, took a
+                frontend career path from scrimba and got my first internship in
+                2022 and since then, I kept growing in my craft as a developer,
+                engineer, and graphic designer in my spare time
               </p>
               <p>
-                Today, I&apos;m the founder of Planetaria, where we&apos;re
-                working on civilian space suits and manned shuttle kits you can
-                assemble at home so that the next generation of kids really{" "}
-                <em>can</em> make it to orbit — from the comfort of their own
-                backyards.
+                Today, I am 5 years in and my passion is stronger than when I
+                first started.
               </p>
             </div>
           </div>

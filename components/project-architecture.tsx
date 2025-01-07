@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface ProjectArchitectureProps {
   architecture: {
     overview: string
@@ -23,10 +25,12 @@ export function ProjectArchitecture({ architecture }: ProjectArchitectureProps) 
       </div>
 
       <div className="relative aspect-[16/10] rounded-lg bg-zinc-100 dark:bg-zinc-800 p-4">
-        <img
+        <Image
           src={architecture.diagram}
           alt="Architecture diagram"
           className="h-full w-full object-contain"
+          width={100}
+          height={100}
         />
       </div>
 

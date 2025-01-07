@@ -22,7 +22,9 @@ interface Project {
   link: string;
   logo: StaticImageData | string;
   logoBackground: string;
+  image?: string; // Added image property
   slug: string;
+  technologies?: string[];
 }
 
 const projects: Project[] = [
@@ -34,24 +36,18 @@ const projects: Project[] = [
     logo: SkimlessLogo,
     logoBackground: "bg-indigo-500",
     slug: "skimless",
+    technologies: ["React", "Node.js", "AWS"],
   },
   {
     name: "Animaginary",
     description:
       "High performance web animation library, hand-written in optimized WASM.",
     link: "github.com",
-    logo: "",
+    logo: "/placeholder.svg?text=A&bg=2563eb&fg=fff",
     logoBackground: "bg-blue-500",
     slug: "animaginary",
-  },
-  {
-    name: "HelioStream",
-    description:
-      "Real-time video streaming library, optimized for interstellar transmission.",
-    link: "github.com",
-    logo: "",
-    logoBackground: "bg-red-500",
-    slug: "heliostream",
+    image: "/animaginary-image.jpg", // Example image path
+    technologies: ["WASM", "WebAssembly", "JavaScript"], // Example technologies
   },
 ];
 
@@ -78,6 +74,18 @@ function ProjectCard({ project }: { project: Project }) {
       <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
         {project.description}
       </p>
+      {project.technologies && (
+        <div className="relative z-10 mt-2 flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="bg-gray-200 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
       <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
         <Link href={`/projects/${project.slug}`} className="flex items-center">
           Read more
@@ -93,14 +101,14 @@ export default function ProjectsPage() {
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-none">
         <div className="pt-24 pb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Things I've made trying to put my dent in the universe.
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl max-w-2xl">
+            Things I&apos;ve made trying to put my dent in the universe.
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I've worked on tons of little projects over the years but these are
-            the ones that I'm most proud of. Many of them are open-source, so if
-            you see something that piques your interest, check out the code and
-            contribute if you have ideas for how it can be improved.
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 max-w-2xl">
+            I&apos;ve worked on tons of little projects over the years but these
+            are the ones that I&apos;m most proud of. You can check out the code
+            and live website. Click the Read more button to learn more about
+            each project.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">

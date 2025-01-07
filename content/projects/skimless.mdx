@@ -1,0 +1,95 @@
+---
+name: Skimless
+description: Now you can query your PDFs for specific questions based on the content of that PDF, digital books, and articles with ease using Skim:move quicker, Skimless:move quicker
+logo: /images/skimless-favicon.png
+video: https://www.youtube.com/embed/CVOk59blzjk
+technologies:
+  - React
+  - NextJS
+  - TypeScript
+  - React-PDF
+  - LangChain
+  - PineconeDB
+  - LLM
+links:
+  - href: https://skimless.vercel.app/
+    label: Website
+    icon: Globe
+  - href: https://github.com/Dannybouy
+    label: GitHub
+    icon: Github
+gallery:
+  - src: /images/skimless/skimless-img2.png
+    alt: Skimless image 1
+    caption: Skimless image 1
+  - src: /images/skimless/skimless-img3.png
+    alt: Skimless image 2
+    caption: Skimless image 2
+  - src: /images/skimless/skimless-img4.png
+    alt: Skimless image 3
+    caption: Skimless image 3
+architecture:
+  overview: Planetaria's system architecture is designed to handle complex space operations while maintaining user-friendly interfaces for civilian astronauts.
+  diagram: /images/skimless/skimless-img4.png
+  components:
+    - name: Mission Control Interface
+      description: React-based dashboard for monitoring and controlling space missions
+    - name: Telemetry System
+      description: Real-time data collection and processing from space suits
+    - name: Safety Protocol Engine
+      description: Automated system ensuring astronaut safety
+  dataFlow:
+    - from: Space Suit Sensors
+      to: Telemetry System
+      description: Continuous monitoring of vital signs and suit conditions
+    - from: Telemetry System
+      to: Mission Control Interface
+      description: Processed data visualization and alerts
+techStack:
+  - name: React, NextJS, & TypeScript
+    description: For building robust, type-safe user interfaces
+  - name: React-PDF
+    description: enables users to view and interact with PDFs directly within the application
+  - name: LangChain
+    description: Backend services for real-time data processing
+---
+
+Skimless was my _final year project for my Bachelor of Science degree in Computer Engineering at the University of Lagos._
+I built it to help students and researchers quickly find answers to
+questions in their PDFs, digital books, and articles. Having to read
+through a whole document to find answers to specific questions can be
+time-consuming and frustrating and I needed a solution to better
+maximize my efficiency, hence the birth of Skimless.
+
+## Methodology
+
+The project integrates several technologies to create an
+interactive, AI-powered Tool. **TypeScript** provides type safety, ensuring reliable code across components. **React.js and Next.js** form the frontend, handling dynamic content rendering and routing. **React-PDF** enables users to view and interact with PDFs directly within the
+application. When a PDF is uploaded, **LangChain** chunks and embeds its content, storing these embeddings in **Pinecone Vectorstore (Database)** for fast, context-based retrieval. When users query the PDF, LangChain uses these embeddings to find relevant sections, and **GPT (an LLM/AI)** generates clear, human-like responses, enabling an engaging, responsive study experience.
+
+## Challenges
+
+The biggest challenge was integrating the various technologies to
+create a seamless, interactive experience. I had to ensure that the
+frontend and backend communicated effectively, and that the
+application could handle large PDFs without slowing down. I also had
+to ensure that the AI generated accurate, relevant responses to user
+queries, which required extensive testing and tweaking to make sure
+the response/s doesn't go outside the scope of the particular
+document being queried.
+
+## Results
+
+Skimless has been a huge success, with users praising its speed,
+accuracy, and ease of use. It has helped students and researchers
+save time and effort when searching for answers in their documents,
+and has received positive feedback from educators and industry
+professionals alike. I am proud of what I have accomplished with
+Skimless and look forward to continuing to improve and expand its
+capabilities in the future.
+
+## Enough talk:
+
+Skimless is live and ready for use! You can check it out [skimless](https://skimless.vercel.app/)
+
+Apparently I also wrote a project report if you care to read more in-depth about skimless. You can check it out

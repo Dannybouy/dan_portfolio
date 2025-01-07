@@ -1,0 +1,79 @@
+---
+name: Animaginary
+description: High performance web animation library, hand-written in optimized WASM.
+logo: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+image: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+technologies:
+  - WebAssembly
+  - JavaScript
+  - Rust
+  - WebGL
+links:
+  - href: https://animaginary.com
+    label: Website
+    icon: Globe
+  - href: https://github.com/animaginary
+    label: GitHub
+    icon: Github
+gallery:
+  - src: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: Animation showcase 1
+    caption: Smooth particle animations
+  - src: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: Animation showcase 2
+    caption: Complex 3D transformations
+  - src: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: Animation showcase 3
+    caption: Interactive user interfaces
+architecture:
+  overview: Animaginary leverages WebAssembly for high-performance animations, with a JavaScript API for easy integration.
+  diagram: https://images.unsplash.com/photo-1735896951413-cb764374f75a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  components:
+    - name: WASM Core
+      description: Optimized animation calculations written in Rust
+    - name: JavaScript API
+      description: User-friendly interface for web developers
+    - name: WebGL Renderer
+      description: Hardware-accelerated rendering of animations
+  dataFlow:
+    - from: JavaScript API
+      to: WASM Core
+      description: Animation parameters and instructions
+    - from: WASM Core
+      to: WebGL Renderer
+      description: Calculated animation frames
+techStack:
+  - name: WebAssembly
+    description: For high-performance, low-level animation calculations
+  - name: Rust
+    description: Systems programming language for writing the WASM core
+  - name: JavaScript
+    description: For the API and integration with web applications
+features:
+  - title: High Performance
+    description: Leveraging WASM for near-native speed animations
+  - title: Easy Integration
+    description: Simple JavaScript API for web developers
+  - title: Customizable
+    description: Extensive options for tailoring animations
+challenges:
+  - title: WebAssembly Optimization
+    description: Achieving maximum performance in WASM
+    solution: Implemented advanced optimization techniques and careful memory management
+  - title: Cross-browser Compatibility
+    description: Ensuring consistent behavior across different browsers
+    solution: Extensive testing and fallback mechanisms for older browsers
+---
+
+## Redefining Web Animations
+
+Animaginary is pushing the boundaries of what's possible with web animations. By leveraging the power of WebAssembly, we've created a library that offers near-native performance for complex animations.
+
+## Technical Innovation
+
+Our use of Rust to write the core animation engine, compiled to WebAssembly, allows us to achieve unprecedented speed and efficiency in web animations.
+
+## Impact on Web Development
+
+Animaginary is changing how developers think about and implement animations on the web, opening up new possibilities for interactive and engaging user experiences.
+
