@@ -1,19 +1,23 @@
-import { ArrowLeft } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { getProjectBySlug } from '@/lib/projects'
-import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ProjectGallery } from '@/components/project-gallery'
-import { ProjectArchitecture } from '@/components/project-architecture'
-import { MDXContent } from '@/components/mdx-content'
+import { MDXContent } from "@/components/mdx-content";
+import { ProjectArchitecture } from "@/components/project-architecture";
+import { ProjectGallery } from "@/components/project-gallery";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getProjectBySlug } from "@/lib/projects";
+import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = await getProjectBySlug(params.slug)
+export default async function ProjectPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = await getProjectBySlug(params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -23,11 +27,11 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           <div className="mx-auto max-w-2xl">
             <Link
               href="/projects"
-              className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
+              className="group my-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
             >
               <ArrowLeft className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
             </Link>
-            
+
             <header className="flex flex-col">
               <div className="flex items-center gap-4">
                 <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
@@ -44,7 +48,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   {project.name}
                 </h1>
               </div>
-              
+
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <Badge key={tech} variant="secondary">
@@ -52,11 +56,11 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   </Badge>
                 ))}
               </div>
-              
+
               <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
                 {project.description}
               </p>
-              
+
               <div className="mt-6 flex gap-4">
                 {project.links.map((link) => (
                   <Link
@@ -64,7 +68,6 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                     href={link.href}
                     className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
                   >
-                    {link.icon && <link.icon className="h-5 w-5" />}
                     {link.label}
                   </Link>
                 ))}
@@ -78,7 +81,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                 <TabsTrigger value="architecture">Architecture</TabsTrigger>
                 <TabsTrigger value="technical">Technical Details</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="overview" className="mt-6 space-y-8">
                 <div className="relative aspect-[16/10] rounded-2xl bg-zinc-100 dark:bg-zinc-800">
                   <iframe
@@ -87,7 +90,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                     src={project.video}
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    className='rounded-xl'
+                    className="rounded-xl"
                     allowFullScreen
                   ></iframe>
                 </div>
@@ -95,7 +98,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   <MDXContent content={project.content} />
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="gallery" className="mt-6">
                 {project.gallery && project.gallery.length > 0 ? (
                   <ProjectGallery images={project.gallery} />
@@ -103,7 +106,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   <p>No gallery images available for this project.</p>
                 )}
               </TabsContent>
-              
+
               <TabsContent value="architecture" className="mt-6">
                 {project.architecture ? (
                   <ProjectArchitecture architecture={project.architecture} />
@@ -111,45 +114,21 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   <p>No architecture details available for this project.</p>
                 )}
               </TabsContent>
-              
-              <TabsContent value="technical" className="mt-6 prose dark:prose-invert">
-                <h2>Technology Stack</h2>
+
+              <TabsContent
+                value="technical"
+                className="mt-5 prose dark:prose-invert font-mono"
+              >
                 {project.techStack && project.techStack.length > 0 ? (
                   <ul>
                     {project.techStack.map((tech) => (
-                      <li key={tech.name}>
-                        <strong>{tech.name}</strong>: {tech.description}
+                      <li key={tech.name} className="leading-9 text-zinc-600 dark:text-zinc-400">
+                        <strong className="text-zinc-700 dark:text-white">{tech.name}</strong>: {tech.description}
                       </li>
                     ))}
                   </ul>
                 ) : (
                   <p>No technology stack details available for this project.</p>
-                )}
-                
-                <h2>Key Features</h2>
-                {project.features && project.features.length > 0 ? (
-                  <ul>
-                    {project.features.map((feature) => (
-                      <li key={feature.title}>
-                        <strong>{feature.title}</strong>: {feature.description}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>No key features listed for this project.</p>
-                )}
-                
-                <h2>Challenges & Solutions</h2>
-                {project.challenges && project.challenges.length > 0 ? (
-                  project.challenges.map((challenge) => (
-                    <div key={challenge.title} className="mb-6">
-                      <h3>{challenge.title}</h3>
-                      <p>{challenge.description}</p>
-                      <p><strong>Solution:</strong> {challenge.solution}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No challenges and solutions listed for this project.</p>
                 )}
               </TabsContent>
             </Tabs>
@@ -157,6 +136,5 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         </div>
       </div>
     </article>
-  )
+  );
 }
-

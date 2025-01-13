@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 
 const routes = [
@@ -31,8 +31,13 @@ export function Navigation() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copyText, setCopyText] = useState("Copy");
+  const [mounted, setMounted] = useState(false);
 
   const email = "danielokpara29@gmail.com";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleEmailCopy = async () => {
     await navigator.clipboard.writeText(email);
@@ -44,27 +49,29 @@ export function Navigation() {
 
   return (
     <>
-      <section className="w-full border-b  py-3 flex gap-4 justify-center">
-        <div className="flex gap-4 justify-center items-center">
-          <p className="text-sm">{email}</p>
-          <Button
-            variant="outline"
-            onClick={handleEmailCopy}
-            className="font-mono"
+      {mounted && (
+        <section className="w-full border-b py-3 flex gap-4 justify-center">
+          <div className="flex gap-4 justify-center items-center">
+            <p className="text-sm">{email}</p>
+            <Button
+              variant="outline"
+              onClick={handleEmailCopy}
+              className="font-mono"
+            >
+              {copyText}
+            </Button>
+          </div>
+          <Link
+            href="https://drive.google.com/file/d/1cVcHBqf1zbY8FqBqZbqzTAmz7nCL5HGV/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {copyText}
-          </Button>
-        </div>
-        <Link
-          href="https://drive.google.com/file/d/1cVcHBqf1zbY8FqBqZbqzTAmz7nCL5HGV/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button variant="outline" className="font-mono">
-            CV
-          </Button>
-        </Link>
-      </section>
+            <Button variant="outline" className="font-mono">
+              CV
+            </Button>
+          </Link>
+        </section>
+      )}
       <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
           <div className="flex h-14 items-center justify-between">

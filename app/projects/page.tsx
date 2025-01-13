@@ -36,18 +36,14 @@ const projects: Project[] = [
     logo: SkimlessLogo,
     logoBackground: "bg-indigo-500",
     slug: "skimless",
-    technologies: ["React", "Node.js", "AWS"],
-  },
-  {
-    name: "Animaginary",
-    description:
-      "High performance web animation library, hand-written in optimized WASM.",
-    link: "github.com",
-    logo: "/placeholder.svg?text=A&bg=2563eb&fg=fff",
-    logoBackground: "bg-blue-500",
-    slug: "animaginary",
-    image: "/animaginary-image.jpg", // Example image path
-    technologies: ["WASM", "WebAssembly", "JavaScript"], // Example technologies
+    technologies: [
+      "React",
+      "NextJS",
+      "React-PDF",
+      "Typescript",
+      "AI",
+      "LangChain",
+    ],
   },
 ];
 

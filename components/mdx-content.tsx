@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 const components = {
@@ -8,7 +9,7 @@ const components = {
     <h2 className="text-2xl font-bold tracking-tight mt-8 mb-4" {...props} />
   ),
   p: (props: any) => (
-    <p className="mt-6" {...props} />
+    <p className="text-zinc-600 dark:text-zinc-400 leading-7" {...props} />
   ),
   a: (props: any) => (
     <a className="text-teal-500 hover:text-teal-600" {...props} />

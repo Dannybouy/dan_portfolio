@@ -92,10 +92,7 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                We strategically design beautiful brands, websites, and digital
-                products that actually work. Creating a product that connects
-                with your target group is essential for success, and we know how
-                to do it.
+               I hope I have been able to convince you and make you feel comfortable to wanting to reach out to me? In my books, I think I did a good job. You can reach out using the form.
               </p>
               <p className="text-sm text-muted-foreground">© DANIEL 2024</p>
             </div>
@@ -108,7 +105,7 @@ export default function ContactPage() {
                 HIRE ME
               </h2>
               <h3 className="text-3xl font-medium mb-8">
-                A PROJECT WITH MATTERED?
+                LET&apos;S WORK TOGETHER
               </h3>
 
               <div className="space-y-8">

@@ -23,18 +23,7 @@ const projects: Project[] = [
     image: skimlessImg,
     link: "/projects/skimless",
   },
-  {
-    title: "Coming Soon",
-    description: "",
-    image: "",
-    link: "/",
-  },
-  {
-    title: "Coming Soon",
-    description: "",
-    image: "",
-    link: "/",
-  },
+  
 ];
 
 export function FeaturedProjects() {

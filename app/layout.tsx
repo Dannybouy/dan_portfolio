@@ -19,8 +19,7 @@ const unbounded = Unbounded({
 
 export const metadata = SEOMetadata({
   title: "Home",
-  description:
-    "Spencer Sharp - Software designer, founder, and amateur astronaut. Exploring the intersection of technology and space exploration.",
+  description: "Daniel Okpara - Software Engineer, and Developer.",
 });
 
 export default function RootLayout({
