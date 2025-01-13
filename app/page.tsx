@@ -107,9 +107,9 @@ export default async function Home() {
                 <Image
                   src={profilePicture}
                   alt="Profile picture"
-                  width={100}
-                  height={100}
-                  quality={95}
+                  width={200}
+                  height={200}
+                  quality={100}
                   priority
                   className="w-full h-full object-cover"
                 />
