@@ -5,8 +5,8 @@ import { SEOMetadata } from '@/components/seo-metadata'
 
 export const metadata = SEOMetadata({
   title: 'Articles',
-  description: 'Thoughts on software design, company building, and the aerospace industry by Spencer Sharp.',
-  keywords: ['software design', 'company building', 'aerospace industry', 'blog'],
+  description: 'Thoughts on software engineering, by Daniel Okpara.',
+  keywords: ['software design', 'software engineering', 'frontend', 'blog'],
 })
 
 export default async function ArticlesPage() {

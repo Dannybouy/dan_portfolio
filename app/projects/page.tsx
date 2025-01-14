@@ -7,12 +7,12 @@ import SkimlessLogo from "../../public/images/skimless-favicon.png";
 export const metadata = SEOMetadata({
   title: "Projects",
   description:
-    "Explore Spencer Sharp's innovative projects in software design and space technology, including Planetaria, Animaginary, and more.",
+    "Explore Daniel Okpara's innovative projects in software development and AI",
   keywords: [
     "software projects",
-    "space technology projects",
-    "Planetaria",
-    "Animaginary",
+    "AI projects",
+    "software development",
+    "frontend development",
   ],
 });
 

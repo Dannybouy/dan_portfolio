@@ -81,7 +81,7 @@ export default function AboutPage() {
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={pic8}
-                alt="Spencer in an astronaut helmet"
+                alt="daniel image"
                 width={800}
                 height={800}
                 priority
