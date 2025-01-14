@@ -46,11 +46,11 @@ export default async function ArticlePage({
             </header>
             <div className="mt-8 space-y-6">
               {article.image && (
-                <div className="relative aspect-[16/10] rounded-2xl bg-zinc-100 dark:bg-zinc-800">
+                <div className="relative aspect-[23/10] rounded-2xl bg-zinc-100 dark:bg-zinc-800">
                   <Image
                     src={article.image}
                     alt=""
-                    className="rounded-2xl object-cover"
+                    className="rounded-2xl object-contain"
                     fill
                     priority
                   />

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Instagram, Twitter } from "lucide-react";
+import { Copyright, Github, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,18 +14,56 @@ const services = ["Gig", "Job", "Chat"];
 
 export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedService, setSelectedService] = useState<string>("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
 
-    // This is where you would typically send the form data to your server
-    // For this example, we'll just simulate a delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsLoading(false);
-    toast.success("Message sent successfully!");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "82ab44ea-22b1-4efd-bc5a-35b3377f053d", // Replace with your API key
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          service: selectedService,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+        setSelectedService("");
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      toast.error("Failed to send message");
+    } finally {
+      setIsLoading(false);
+    }
   }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -92,9 +130,11 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-               I hope I have been able to convince you and make you feel comfortable to wanting to reach out to me? In my books, I think I did a good job. You can reach out using the form.
+                I hope I have been able to convince you and make you feel
+                comfortable to wanting to reach out to me? In my books, I think
+                I did a good job. You can reach out using the form.
               </p>
-              <p className="text-sm text-muted-foreground">© DANIEL 2024</p>
+              <p className="text-sm text-muted-foreground flex gap-2"><Copyright className="size-5"/> DANIEL 2024</p>
             </div>
           </div>
 
@@ -115,8 +155,15 @@ export default function ContactPage() {
                     {services.map((service) => (
                       <Badge
                         key={service}
-                        variant="secondary"
-                        className="rounded-full px-4 py-1 hover:bg-teal-400 hover:text-white cursor-pointer transition-colors"
+                        variant={
+                          selectedService === service ? "default" : "secondary"
+                        }
+                        className={`rounded-full px-4 py-1 cursor-pointer transition-colors ${
+                          selectedService === service
+                            ? "bg-teal-400 text-white"
+                            : "hover:bg-teal-400 hover:text-white"
+                        }`}
+                        onClick={() => setSelectedService(service)}
                       >
                         {service}
                       </Badge>
@@ -132,8 +179,11 @@ export default function ContactPage() {
                       </label>
                       <Input
                         id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         placeholder="Enter your name"
-                        className="rounded-none border-x-0 border-t-0 border-b-2 px-0 focus-visible:ring-0"
+                        className="rounded-none border-x-0 border-t-0 border-b-2 px-0"
                         required
                       />
                     </div>
@@ -143,22 +193,28 @@ export default function ContactPage() {
                       </label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="Enter your email"
-                        className="rounded-none border-x-0 border-t-0 border-b-2 px-0 focus-visible:ring-0"
+                        className="rounded-none border-x-0 border-t-0 border-b-2 px-0"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="details" className="text-sm font-medium">
+                    <label htmlFor="message" className="text-sm font-medium">
                       Message
                     </label>
                     <Textarea
-                      id="details"
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Tell me about your project..."
-                      className="min-h-[100px] rounded-none border-x-0 border-t-0 border-b-2 px-0 focus-visible:ring-0"
+                      className="min-h-[100px] rounded-none border-x-0 border-t-0 border-b-2 px-0 "
                       required
                     />
                   </div>
@@ -166,6 +222,7 @@ export default function ContactPage() {
                   <div className="flex justify-end">
                     <Button
                       type="submit"
+                      disabled={!selectedService || isLoading}
                       className="rounded-full transition-colors"
                     >
                       {isLoading ? "Sending..." : "Send"}

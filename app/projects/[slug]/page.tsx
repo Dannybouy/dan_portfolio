@@ -66,6 +66,8 @@ export default async function ProjectPage({
                   <Link
                     key={link.href}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-800 hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
                   >
                     {link.label}
@@ -122,8 +124,14 @@ export default async function ProjectPage({
                 {project.techStack && project.techStack.length > 0 ? (
                   <ul>
                     {project.techStack.map((tech) => (
-                      <li key={tech.name} className="leading-9 text-zinc-600 dark:text-zinc-400">
-                        <strong className="text-zinc-700 dark:text-white">{tech.name}</strong>: {tech.description}
+                      <li
+                        key={tech.name}
+                        className="leading-9 text-zinc-600 dark:text-zinc-400"
+                      >
+                        <strong className="text-zinc-700 dark:text-white">
+                          {tech.name}
+                        </strong>
+                        : {tech.description}
                       </li>
                     ))}
                   </ul>

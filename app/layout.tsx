@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://www.spencersharp.com" />
+        <link rel="canonical" href="https://danielokpara.me/" />
       </head>
       <body
         className={`${inter.className} ${spaceMono.variable} ${unbounded.variable} min-h-screen bg-background antialiased`}

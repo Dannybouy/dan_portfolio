@@ -23,6 +23,7 @@ const technologies = [
   { status: "Loving", name: "Tailwind CSS" },
   { status: "Testing with", name: "Vitest" },
   { status: "Learning", name: "GO" },
+  { status: "Mobile with", name: "React Native" },
 ];
 
 export const metadata = SEOMetadata({
@@ -82,15 +83,10 @@ export default async function Home() {
     <>
       <Script id="structured-data" type="application/ld+json">
         {JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "Person",
           name: "Daniel Okpara",
-          url: "https://www.spencersharp.com",
+          url: "https://danielokpara.me/",
           jobTitle: "Software Engineer",
-          worksFor: {
-            "@type": "Organization",
-            name: "Planetaria",
-          },
           sameAs: [
             "https://x.com/IamDannybouy20",
             "https://www.linkedin.com/in/daniel-okpara/",
@@ -119,7 +115,7 @@ export default async function Home() {
                 Software Engineer, developer, but loves frontend
               </h1>
 
-              <div className="text-lg leading-8 text-muted-foreground max-w-[600px] text-left mb-8 font-mono">
+              <div className="text-lg leading-8 text-zinc-600 dark:text-zinc-300 max-w-[600px] text-left mb-8 font-mono text-balance">
                 I&apos;m Daniel, a software engineer based in Lagos, Nigeria{" "}
                 <span>
                   <Image
@@ -130,9 +126,9 @@ export default async function Home() {
                     className="size-10 inline-block"
                   />
                 </span>{" "}
-                . I&apos;m the founder and CEO of Planetaria, where we develop
-                technologies that empower regular people to explore space on
-                their own terms.
+                . With over 3+ years of experience, I specialize in building
+                software products, applications, and websites for companies,
+                startup and businesses.
               </div>
               <div className="flex space-x-6">
                 {socialLinks.map((platform) => (
@@ -141,7 +137,7 @@ export default async function Home() {
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-zinc-600 dark:text-zinc-300 "
                   >
                     {platform.name === "Twitter" && (
                       <Twitter className="h-6 w-6 hover:text-teal-400" />
@@ -189,13 +185,13 @@ export default async function Home() {
         <div className="w-full max-w-screen-2xl px-6 lg:px-8 lg:mb-56">
           <div className="mx-auto max-w-2xl lg:max-w-5xl text-center">
             <div className="mb-12">
-              <p className="text-base text-muted-foreground font-mono">
+              <p className="text-base text-zinc-600 dark:text-zinc-300 font-mono">
                 Here is a little bit about
               </p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 font-unbounded">
                 languages and technologies,
               </h2>
-              <p className="text-lg text-muted-foreground font-mono">
+              <p className="text-lg text-zinc-600 dark:text-zinc-300 font-mono">
                 that I am currently using and learning.
               </p>
             </div>

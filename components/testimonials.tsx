@@ -46,7 +46,7 @@ export function Testimonials() {
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 font-unbounded">
             Words from previous collegues
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-zinc-600 dark:text-zinc-300">
             I try to see how I am doing with the people I have worked with and
             currently working with
           </p>
@@ -61,10 +61,10 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="relative bg-background rounded-2xl shadow-lg p-6 ring-1 ring-zinc-900/5 dark:ring-white/10 hover:shadow-xl transition-shadow"
+                className="relative bg-background rounded-2xl shadow-lg p-6 ring-1 ring-zinc-900/5 dark:ring-white/10 hover:shadow-xl transition-shadow "
               >
-                <div className="relative z-10 divide-y">
-                  <p className="text-base text-muted-foreground mb-6 text-balance">
+                <div className="relative z-10 divide-y ">
+                  <p className="text-base text-zinc-600 dark:text-zinc-300 mb-6">
                     &quot;{testimonial.quote}&quot;
                   </p>
                   <div className="flex items-center gap-4 pt-5">
@@ -79,7 +79,7 @@ export function Testimonials() {
                       <div className="font-medium text-foreground">
                         {testimonial.author}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-zinc-600 dark:text-zinc-300">
                         <span className="font-semibold">
                           {testimonial.role}
                         </span>{" "}

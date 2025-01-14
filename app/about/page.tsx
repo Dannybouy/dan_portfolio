@@ -118,7 +118,7 @@ export default function AboutPage() {
                 engineer, and graphic designer in my spare time
               </p>
               <p>
-                Today, I am 5 years in and my passion is stronger than when I
+                Today, I am 3 years in and my passion is stronger than when I
                 first started.
               </p>
             </div>
