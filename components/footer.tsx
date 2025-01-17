@@ -36,7 +36,7 @@ export function Footer() {
                       Contact
                     </Link>
                   </div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-500 flex items-center gap-2">
+                  <p className="text-xs md:text-sm text-zinc-500 dark:text-zinc-500 flex items-center gap-2">
                     <Copyright className="size-5" /> {new Date().getFullYear()}{" "}
                     Daniel Okpara. All rights reserved.
                   </p>

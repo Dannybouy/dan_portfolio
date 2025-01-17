@@ -78,10 +78,10 @@ export default async function ProjectPage({
 
             <Tabs defaultValue="overview" className="mt-12">
               <TabsList className="w-full justify-start">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="gallery">Gallery</TabsTrigger>
-                <TabsTrigger value="architecture">Architecture</TabsTrigger>
-                <TabsTrigger value="technical">Technical Details</TabsTrigger>
+                <TabsTrigger value="overview" className="text-xs md:text-base">Overview</TabsTrigger>
+                <TabsTrigger value="gallery" className="text-xs md:text-base">Gallery</TabsTrigger>
+                <TabsTrigger value="architecture" className="text-xs md:text-base">Architecture</TabsTrigger>
+                <TabsTrigger value="technical" className="text-xs md:text-base ">Tech Stack</TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="mt-6 space-y-8">

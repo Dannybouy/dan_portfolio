@@ -37,7 +37,7 @@ export function CollaborationSection() {
             <br />
             Together
           </h2>
-          <p className="text-xl text-muted-foreground mb-8">
+          <p className="text-base lg:text-xl text-muted-foreground mb-8">
             Don&apos;t hesitate to drop me a line
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

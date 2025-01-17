@@ -43,10 +43,10 @@ export function Testimonials() {
     <section className="py-24 px-6 lg:px-8 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 font-unbounded">
+          <h2 className="text-3xl font-bold tracking-tight lg:text-4xl mb-4 font-unbounded">
             Words from previous collegues
           </h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-300">
+          <p className="text-base lg:text-lg text-zinc-600 dark:text-zinc-300">
             I try to see how I am doing with the people I have worked with and
             currently working with
           </p>

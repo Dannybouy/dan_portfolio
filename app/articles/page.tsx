@@ -19,7 +19,7 @@ export default async function ArticlesPage() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl font-unbounded">
             Writing on software development, hacks, tips, and tricks.
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 text-sm md:text-base text-zinc-600 dark:text-zinc-400">
             All of my long-form thoughts on programming,software engineering, and problem solving collected in chronological order.
           </p>
         </header>
@@ -57,7 +57,7 @@ export default async function ArticlesPage() {
                   </div>
                 </div>
                 <time
-                  className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-400"
+                  className="mt-1 md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-400"
                   dateTime={article.date}
                 >
                   {new Date(article.date).toLocaleDateString('en-US', {

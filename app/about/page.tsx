@@ -53,7 +53,7 @@ const workExperience = [
   {
     company: "Programmer's University",
     role: "React Developer",
-    period: "2024 — Present",
+    period: "2024",
   },
   {
     company: "NATGAB CONSULTANCY LIMITED",
@@ -137,10 +137,10 @@ export default function AboutPage() {
                     <div key={job.company} className="flex items-start gap-4">
                       <div className="flex-1 space-y-1">
                         <div className="flex items-center justify-between">
-                          <h3 className="font-medium truncate text-sm">
+                          <h3 className="font-medium text-ellipsis text-xs">
                             {job.company}
                           </h3>
-                          <p className="text-sm text-zinc-500">{job.period}</p>
+                          <p className="text-sm text-zinc-500 ml-2">{job.period}</p>
                         </div>
                         <p className="text-sm text-zinc-500">{job.role}</p>
                       </div>

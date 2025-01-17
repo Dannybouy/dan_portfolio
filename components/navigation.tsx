@@ -52,7 +52,7 @@ export function Navigation() {
       {mounted && (
         <section className="w-full border-b py-3 flex gap-4 justify-center">
           <div className="flex gap-4 justify-center items-center">
-            <p className="text-sm">{email}</p>
+            <p className="text-[13px] md:text-sm">{email}</p>
             <Button
               variant="outline"
               onClick={handleEmailCopy}

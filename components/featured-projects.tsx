@@ -30,7 +30,7 @@ export function FeaturedProjects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full py px-6 lg:px-8">
+    <section className="w-full py px-6 lg:px-8 mt-28">
       <div className="max-w-screen-2xl mx-auto">
         <div className="flex justify-between items-center mb-12">
           <div>

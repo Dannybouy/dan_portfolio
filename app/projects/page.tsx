@@ -49,7 +49,7 @@ const projects: Project[] = [
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative flex flex-col items-start">
+    <div className="group relative flex flex-col items-start rounded">
       <div className="relative z-10 flex size-8 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
         <Image
           src={project.logo}
@@ -67,7 +67,7 @@ function ProjectCard({ project }: { project: Project }) {
           <span className="relative z-10">{project.name}</span>
         </Link>
       </h2>
-      <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="relative z-10 mt-2 md:text-sm text-zinc-600 dark:text-zinc-400">
         {project.description}
       </p>
       {project.technologies && (
@@ -82,12 +82,14 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       )}
-      <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-        <Link href={`/projects/${project.slug}`} className="flex items-center">
-          Read more
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </Link>
-      </p>
+
+      <Link
+        href={`/projects/${project.slug}`}
+        className="flex items-center text-teal-500 font-mono mt-4"
+      >
+        Read more
+        <ArrowRight className="ml-1 h-4 w-4" />
+      </Link>
     </div>
   );
 }
@@ -100,7 +102,7 @@ export default function ProjectsPage() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl max-w-2xl">
             Things I&apos;ve made trying to put my dent in the universe.
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 max-w-2xl">
+          <p className="mt-6  text-sm md:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl">
             I&apos;ve worked on tons of little projects over the years but these
             are the ones that I&apos;m most proud of. You can check out the code
             and live website. Click the Read more button to learn more about

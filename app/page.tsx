@@ -22,7 +22,7 @@ const technologies = [
   { status: "Using", name: "Next.js" },
   { status: "Loving", name: "Tailwind CSS" },
   { status: "Testing with", name: "Vitest" },
-  { status: "Learning", name: "GO" },
+  { status: "Learning", name: "Golang" },
   { status: "Mobile with", name: "React Native" },
 ];
 
@@ -202,7 +202,7 @@ export default async function Home() {
                   <p className="text-sm text-zinc-400 font-mono">
                     {tech.status}
                   </p>
-                  <h3 className="text-2xl font-bold font-unbounded">
+                  <h3 className="lg:text-2xl text-xl font-bold font-unbounded">
                     {tech.name}
                   </h3>
                 </div>
