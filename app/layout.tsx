@@ -2,7 +2,8 @@ import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { SEOMetadata } from "@/components/seo-metadata";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter, Space_Mono, Unbounded, } from "next/font/google";
+import { Inter, Space_Mono, Unbounded } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
@@ -31,6 +32,20 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://danielokpara.me/" />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LYZZDYP9LX"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-LYZZDYP9LX');
+      
+    `}
+        </Script>
       </head>
       <body
         className={`${inter.className} ${spaceMono.variable} ${unbounded.variable} min-h-screen bg-background antialiased`}
