@@ -1,7 +1,9 @@
 import { SEOMetadata } from "@/components/seo-metadata";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Url } from "next/dist/shared/lib/router/router";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import BankOfAnthos from "../../public/images/anthos/cymbal-logo.png";
 import SkimlessLogo from "../../public/images/skimless-favicon.png";
 
 export const metadata = SEOMetadata({
@@ -19,7 +21,7 @@ export const metadata = SEOMetadata({
 interface Project {
   name: string;
   description: string;
-  link: string;
+  link?: string;
   logo: StaticImageData | string;
   logoBackground: string;
   image?: string; // Added image property
@@ -44,28 +46,27 @@ const projects: Project[] = [
       "AI",
       "LangChain",
     ],
+  },  
+  {
+    name: "Bank of Anthos",
+    description:
+      "A banking platform allowing users to create artificial bank accounts and complete transactions.",
+    link: "https://github.com/Dannybouy/group-3-hackathon",
+    logo: BankOfAnthos,
+    logoBackground: "bg-indigo-500",
+    slug: "bank-of-anthos",
+    technologies: ["Java", "Python", "GCP", "Javascript", "PostgreSQL"],
   },
 ];
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative flex flex-col items-start rounded">
+    <div className="grou relative flex flex-col items-start rounded">
       <div className="relative z-10 flex size-8 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
-        <Image
-          src={project.logo}
-          alt={project.name}
-          className="h-8 w-8"
-          width={32}
-          height={32}
-          unoptimized
-        />
+        <Image src={project.logo} alt={project.name} width={52} height={52} />
       </div>
       <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-        <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-        <Link href={`/projects/${project.slug}`}>
-          <span className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-          <span className="relative z-10">{project.name}</span>
-        </Link>
+        {project.name}
       </h2>
       <p className="relative z-10 mt-2 md:text-sm text-zinc-600 dark:text-zinc-400">
         {project.description}
@@ -82,14 +83,23 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       )}
+      <div className="flex gap-5">
+        <Link
+          href={project.link as Url}
+          className="flex items-center text-teal-500 font-mono mt-4 underline underline-offset-2"
+        >
+          Live
+          <ArrowUpRight className="ml-1 h-4 w-4" />
+        </Link>
 
-      <Link
-        href={`/projects/${project.slug}`}
-        className="flex items-center text-teal-500 font-mono mt-4"
-      >
-        Read more
-        <ArrowRight className="ml-1 h-4 w-4" />
-      </Link>
+        <Link
+          href={`/projects/${project.slug}`}
+          className="flex items-center text-teal-500 font-mono mt-4 underline underline-offset-2"
+        >
+          Read more
+          <ArrowRight className="ml-1 h-4 w-4" />
+        </Link>
+      </div>
     </div>
   );
 }

@@ -140,16 +140,25 @@ export default function AboutPage() {
                           <h3 className="font-medium text-ellipsis text-xs">
                             {job.company}
                           </h3>
-                          <p className="text-sm text-zinc-500 ml-2">{job.period}</p>
+                          <p className="text-sm text-zinc-500 ml-2">
+                            {job.period}
+                          </p>
                         </div>
                         <p className="text-sm text-zinc-500">{job.role}</p>
                       </div>
                     </div>
                   ))}
-                  <Button variant="outline" className="w-full mt-4 gap-2">
-                    <Download className="h-4 w-4" />
-                    Download CV
-                  </Button>
+                  <Link
+                    href="/OKPARA_DANIEL_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                  >
+                    <Button variant="outline" className="w-full mt-4 gap-2">
+                      <Download className="h-4 w-4" />
+                      Download CV
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
 

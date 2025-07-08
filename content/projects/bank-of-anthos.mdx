@@ -1,0 +1,78 @@
+---
+name: Bank of Anthos
+description: Bank of Anthos is an HTTPS-based web app that simulates a bank's payment processing network, allowing users to create artifical bank accounts and complete transactions.
+logo: /images/anthos/cymbal-logo.png
+video: https://pitch.com/v/bank-of-anthos-uvq723/9263cb06-2a3f-4683-a305-936f43e8701f
+technologies:
+  - Java
+  - Python
+  - Javascript
+  - PostgreSQL
+  - GCP
+links:
+  - href: https://github.com/Dannybouy/group-3-hackathon
+    label: Website
+    icon: Globe
+  - href: https://github.com/Dannybouy/group-3-hackathon
+    label: GitHub
+    icon: Github
+gallery:
+  - src: /images/anthos/1.png
+    alt: Anthos image 1
+    caption: Anthos image 1
+  - src: /images/anthos/2.png
+    alt: Anthos image 2
+    caption: Anthos image 2
+  - src: /images/anthos/3.png
+    alt: Anthos image 3
+    caption: Anthos image 3
+architecture:
+  diagram: /images/anthos/bank-of-anthos-architecture.png
+techStack:
+  - name: Frontend Service - Python
+    description: Exposes an HTTP server to serve the website. Contains login page, signup page, and home page.
+  - name: Ledger-writer Service - Java
+    description: Accepts and validates incoming transactions before writing them to the ledger.
+  - name: Balance-reader Service - Java
+    description: Provides an efficient, readable cache of user balances, as read from ledger-db.
+  - name: Transaction-history Service - Java
+    description: Provides an efficient, readable cache of past transactions, as read from ledger-db.
+  - name: Ledger-db Service - PostgreSQL
+    description: Ledger of all transactions. Option to pre-populate with transactions for demo users.
+  - name: User Service - Python
+    description: Manages user accounts and authentication. Signs JWTs are used for authentication by other services.
+  - name: Contacts Service - Python
+    description: Stores a list of other accounts associated with a user. Used for drop-down in "Send Payment" and "Deposit" forms.
+  - name: Accounts-db Service - PostgreSQL
+    description: Database for user accounts and associated data. Option to pre-populate with demo users.
+  - name: Load Generator Service - Python
+    description: Continuously sends requests imitating users to the frontend. Periodically creates new accounts and simulates transactions between them.
+---
+
+Bank of Anthos was conceived to bridge a critical gap in African financial inclusion. While digital finance solutions are emerging, millions across the continent, from market traders to established professionals, remain underserved. Our mission is to empower every African to fully participate in the benefits of the digital economy. Through features like **transaction-history-based credit scoring** for swift loan access and **instant bank statement generation** for proof of financial standing, Bank of Anthos directly addresses key barriers to financial progress, fostering a future where digital finance truly serves all.
+
+## Methodology
+The Bank of Anthos project utilized a cloud-native, microservices-based architecture deployed on Google Kubernetes Engine (GKE). The development and deployment followed a robust CI/CD pipeline with automated builds and deployments triggered by code changes in individual microservices. Here are the highlights:
+
+**Microservices Decomposition:** The application was broken down into distinct services (e.g., frontend, userservice, ledgerwriter, balancereader) each with specific responsibilities and often written in different languages (Python, Java).
+
+**Managed Services for Infrastructure:** The project heavily leveraged Google Cloud Platform (GCP) managed services like Cloud SQL (PostgreSQL) for databases, Cloud Build for CI/CD, Artifact Registry for container image storage, Cloud Monitoring, and Cloud Logging for observability. This approach reduced operational overhead and leveraged GCP's inherent scalability and reliability.
+
+**Automated CI/CD:** Each microservice had its own isolated Cloud Build configuration, ensuring that changes to one service didn't inadvertently affect others during the build and deployment process. kubectl rollouts were used for seamless updates.
+
+**Security by Design:** HTTPS enforcement, JWT-based authentication, Workload Identity for least privilege access to Cloud SQL, and automatic TLS certificate management were integral to the security posture.
+
+**Observability:** Custom Cloud Monitoring dashboards and structured Cloud Logging were implemented to provide real-time insights into service health, performance, and error rates, enabling proactive issue detection and resolution.
+
+**Load Testing:** The inclusion of a loadgenerator service (Python/Locust) demonstrates a methodology for simulating user behavior and testing the system's performance under load.
+
+
+## Challenges
+**Microservices Complexity:** Managing multiple independent microservices, their interdependencies, and communication protocols (e.g., REST endpoints, JWT validation across services) can introduce significant complexity compared to a monolithic application.
+
+**Database Management and Migration:** The migration from on-cluster PostgreSQL to Cloud SQL, while beneficial for high availability, would have required careful planning and execution to ensure data integrity and minimal downtime. Managing two separate Cloud SQL databases (accounts-db and ledger-db) adds a layer of data management complexity.
+
+
+## Results
+the Bank of Anthos project demonstrates a successful application of modern cloud architecture principles, resulting in a flexible, secure, and observable system capable of simulating complex banking operations.
+

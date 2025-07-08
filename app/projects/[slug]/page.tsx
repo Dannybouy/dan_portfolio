@@ -15,7 +15,7 @@ export default async function ProjectPage({
   params: { slug: string };
 }) {
   const project = await getProjectBySlug(params.slug);
-
+  // If the project is not found, redirect to a 404 page
   if (!project) {
     notFound();
   }
@@ -50,7 +50,7 @@ export default async function ProjectPage({
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
+                {project.technologies?.map((tech) => (
                   <Badge key={tech} variant="secondary">
                     {tech}
                   </Badge>
@@ -62,7 +62,7 @@ export default async function ProjectPage({
               </p>
 
               <div className="mt-6 flex gap-4">
-                {project.links.map((link) => (
+                {project.links?.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -78,10 +78,24 @@ export default async function ProjectPage({
 
             <Tabs defaultValue="overview" className="mt-12">
               <TabsList className="w-full justify-start">
-                <TabsTrigger value="overview" className="text-xs md:text-base">Overview</TabsTrigger>
-                <TabsTrigger value="gallery" className="text-xs md:text-base">Gallery</TabsTrigger>
-                <TabsTrigger value="architecture" className="text-xs md:text-base">Architecture</TabsTrigger>
-                <TabsTrigger value="technical" className="text-xs md:text-base ">Tech Stack</TabsTrigger>
+                <TabsTrigger value="overview" className="text-xs md:text-base">
+                  Overview
+                </TabsTrigger>
+                <TabsTrigger value="gallery" className="text-xs md:text-base">
+                  Gallery
+                </TabsTrigger>
+                <TabsTrigger
+                  value="architecture"
+                  className="text-xs md:text-base"
+                >
+                  Architecture
+                </TabsTrigger>
+                <TabsTrigger
+                  value="technical"
+                  className="text-xs md:text-base "
+                >
+                  Tech Stack
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="mt-6 space-y-8">

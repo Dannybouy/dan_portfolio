@@ -130,9 +130,7 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                I hope I have been able to convince you and make you feel
-                comfortable to wanting to reach out to me? In my books, I think
-                I did a good job. You can reach out using the form.
+                Let&apos;s solve problems together. <br/> You can reach out using the form.
               </p>
               <p className="text-sm text-muted-foreground flex gap-2"><Copyright className="size-5"/> DANIEL 2024</p>
             </div>

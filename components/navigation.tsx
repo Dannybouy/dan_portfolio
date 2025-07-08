@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 const routes = [
@@ -62,9 +62,10 @@ export function Navigation() {
             </Button>
           </div>
           <Link
-            href="https://drive.google.com/file/d/1cVcHBqf1zbY8FqBqZbqzTAmz7nCL5HGV/view?usp=sharing"
+            href="/OKPARA_DANIEL_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            download
           >
             <Button variant="outline" className="font-mono">
               CV

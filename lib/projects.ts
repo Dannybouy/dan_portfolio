@@ -76,7 +76,6 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const filePath = path.join(projectsDirectory, `${slug}.mdx`);
     const fileContents = await fs.readFile(filePath, "utf8");
     const { data, content } = matter(fileContents);
-
     return {
       slug,
       name: data.name,
